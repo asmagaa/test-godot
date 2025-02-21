@@ -19,7 +19,7 @@ texture = ExtResource("1_85j8u")
 metadata/_edit_lock_ = true
 
 [node name="player" parent="." instance=ExtResource("2_2lqm5")]
-position = Vector2(3, 497)
+position = Vector2(44, 474)
 script = ExtResource("3_naxgy")
 
 [node name="floor" type="StaticBody2D" parent="."]
