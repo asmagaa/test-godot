@@ -28,9 +28,7 @@ scale = Vector2(35, 233)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="floor"]
 position = Vector2(-1.90735e-06, -0.00214589)
-scale = Vector2(1, 1)
 shape = SubResource("RectangleShape2D_pne0w")
 
 [node name="Area2D" type="Area2D" parent="floor/CollisionShape2D"]
 position = Vector2(1.90735e-06, 0.00214601)
-scale = Vector2(1, 1)
