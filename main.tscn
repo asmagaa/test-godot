@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://daxx2ms4rb7td" path="res://icon.svg" id="1_85j8u"]
 [ext_resource type="PackedScene" uid="uid://ddji1pcvuyxsk" path="res://player.tscn" id="2_2lqm5"]
-[ext_resource type="Script" path="res://TowerFactory.cs" id="3_c2ck1"]
+[ext_resource type="PackedScene" uid="uid://jgqsitgii6f0" path="res://tower_placer.tscn" id="3_qy6qn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcj4k"]
 size = Vector2(1176, 130)
@@ -10,7 +10,7 @@ size = Vector2(1176, 130)
 [node name="Node" type="Node"]
 
 [node name="player" parent="." instance=ExtResource("2_2lqm5")]
-position = Vector2(428, 146)
+position = Vector2(562, 276)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 position = Vector2(66, 58)
@@ -18,8 +18,11 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 rotation_smoothing_speed = 20.0
 
+[node name="towerPlacer" parent="." instance=ExtResource("3_qy6qn")]
+position = Vector2(415, 265)
+
 [node name="flor" type="StaticBody2D" parent="."]
-position = Vector2(8, 124)
+position = Vector2(4, 10)
 
 [node name="florSprite" type="Sprite2D" parent="flor"]
 position = Vector2(575, 454)
@@ -27,8 +30,5 @@ scale = Vector2(9.04688, 1)
 texture = ExtResource("1_85j8u")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flor"]
-position = Vector2(578, 452)
+position = Vector2(589, 452)
 shape = SubResource("RectangleShape2D_lcj4k")
-
-[node name="TowerFactory" type="Node2D" parent="."]
-script = ExtResource("3_c2ck1")

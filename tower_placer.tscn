@@ -1,0 +1,8 @@
+[gd_scene load_steps=3 format=3 uid="uid://jgqsitgii6f0"]
+
+[ext_resource type="Script" path="res://TowerPlacer.cs" id="1_sjdhd"]
+[ext_resource type="PackedScene" uid="uid://cav3iorginirt" path="res://tower.tscn" id="2_nutwn"]
+
+[node name="towerPlacer" type="Node2D"]
+script = ExtResource("1_sjdhd")
+tower_scn = ExtResource("2_nutwn")

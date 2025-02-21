@@ -1,8 +1,16 @@
-[gd_scene load_steps=2 format=3 uid="uid://lr4o80m0fsiv"]
+[gd_scene load_steps=3 format=3 uid="uid://cav3iorginirt"]
 
 [ext_resource type="Texture2D" uid="uid://daxx2ms4rb7td" path="res://icon.svg" id="1_flkwy"]
 
-[node name="Node2D" type="Node2D"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v2son"]
+size = Vector2(121, 126)
+
+[node name="Tower" type="CharacterBody2D"]
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 texture = ExtResource("1_flkwy")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-0.5, -1)
+shape = SubResource("RectangleShape2D_v2son")
+one_way_collision_margin = 6.5

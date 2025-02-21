@@ -19,7 +19,11 @@ public partial class TowerPlacer  : Node2D
 	}
 		void PlaceTower()
 	{
-		//CharacterBody2D tower = tower_scn.Instantiate<CharacterBody2D>();
-	//	GetTree().Root.AddChild(tower);
+		CharacterBody2D tower = tower_scn.Instantiate<CharacterBody2D>();
+		Vector2 position = tower.Position;
+		position.Y = 250;
+		position.X = 415;
+		tower.Position = position;
+		GetTree().Root.AddChild(tower);
 	}
 }
