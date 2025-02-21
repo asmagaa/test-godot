@@ -1,38 +1,56 @@
 using Godot;
 using System;
-using System.Numerics;
 
-public partial class Player : Node2D
+
+public partial class Player : CharacterBody2D
 {
-	const float Movedis = 5;
+	public const float Speed = 300.0f;
+	public const float JumpVelocity = -400.0f;
 
-	// Called when the node enters the scene tree for the first time.
-	public override void _Ready()
+	// Get the gravity from the project settings to be synced with RigidBody nodes.
+	public float gravity = ProjectSettings.GetSetting("physics/2d/default_gravity").AsSingle();
+
+		public override void _Ready()
 	{
 
 	}
-
-	// Called every frame. 'delta' is the elapsed time since the previous frame.
-	public override void _Process(double delta)
+	public override void _PhysicsProcess(double delta)
 	{
-		if (Input.IsKeyPressed(Key.Left) || Input.IsKeyPressed(Key.A))
-		{
-			this.Position += new Godot.Vector2(-Movedis, 0);
-		}
-		if (Input.IsKeyPressed(Key.Right) || Input.IsKeyPressed(Key.D))
-		{
-			this.Position += new Godot.Vector2(Movedis, 0);
-
-		}
-		if (Input.IsKeyPressed(Key.Up) || Input.IsKeyPressed(Key.W))
-		{
-			this.Position += new Godot.Vector2(0, -Movedis);
-
-		}
-		if (Input.IsKeyPressed(Key.Down) || Input.IsKeyPressed(Key.S))
-		{
-			this.Position += new Godot.Vector2(0, Movedis);
-
-		}
+        HorizontalUpdate();
+        VerticalUpdate(delta);
+        
 	}
+
+
+    void VerticalUpdate(double delta)
+    {
+        Vector2 velocity = Velocity;
+       	if (Input.IsActionJustPressed("jump") && IsOnFloor())
+		{
+			velocity.Y = JumpVelocity;
+		} 
+        if (!IsOnFloor())
+		{
+			velocity.Y += gravity * (float)delta;
+		}
+
+       Velocity = velocity;
+       MoveAndSlide();
+    }
+    
+    void HorizontalUpdate()
+    {  
+        Vector2 velocity = Velocity;
+		float horizontalMovement = Input.GetAxis("left", "right");
+		if (horizontalMovement != 0)
+		{
+			velocity.X = horizontalMovement * Speed;
+		}
+		else
+		{
+			velocity.X = Mathf.MoveToward(velocity.X, 0, Speed);
+		}
+        Velocity = velocity;
+        MoveAndSlide();
+    }
 }
