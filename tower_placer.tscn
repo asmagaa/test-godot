@@ -1,8 +1,17 @@
-[gd_scene load_steps=3 format=3 uid="uid://jgqsitgii6f0"]
+[gd_scene load_steps=4 format=3 uid="uid://jgqsitgii6f0"]
 
 [ext_resource type="Script" path="res://TowerPlacer.cs" id="1_sjdhd"]
 [ext_resource type="PackedScene" uid="uid://cav3iorginirt" path="res://tower.tscn" id="2_nutwn"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_gxwqu"]
+size = Vector2(171, 119)
+
 [node name="towerPlacer" type="Node2D"]
 script = ExtResource("1_sjdhd")
 tower_scn = ExtResource("2_nutwn")
+
+[node name="Area2D" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
+position = Vector2(1, -1)
+shape = SubResource("RectangleShape2D_gxwqu")

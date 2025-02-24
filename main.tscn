@@ -19,7 +19,7 @@ position_smoothing_speed = 20.0
 rotation_smoothing_speed = 20.0
 
 [node name="towerPlacer" parent="." instance=ExtResource("3_qy6qn")]
-position = Vector2(415, 265)
+position = Vector2(428, 335)
 
 [node name="flor" type="StaticBody2D" parent="."]
 position = Vector2(4, 10)
