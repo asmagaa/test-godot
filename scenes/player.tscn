@@ -1,18 +1,20 @@
 [gd_scene load_steps=4 format=3 uid="uid://ddji1pcvuyxsk"]
 
-[ext_resource type="Script" path="res://Player.cs" id="1_mxn26"]
-[ext_resource type="Texture2D" uid="uid://dhdl6bnlk54w7" path="res://character.png" id="1_npl7p"]
+[ext_resource type="Script" path="res://scripts/Player.cs" id="1_mxn26"]
+[ext_resource type="Texture2D" uid="uid://dhdl6bnlk54w7" path="res://assets/character.png" id="1_npl7p"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_6rus2"]
 size = Vector2(120, 120)
 
 [node name="player" type="CharacterBody2D"]
+position = Vector2(-59, -60)
 script = ExtResource("1_mxn26")
 
 [node name="TextureRect" type="TextureRect" parent="."]
 offset_right = 120.0
 offset_bottom = 120.0
 texture = ExtResource("1_npl7p")
+metadata/_edit_use_anchors_ = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(60, 60)

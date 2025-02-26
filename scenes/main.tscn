@@ -1,15 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://dcp7f57djo5x8"]
+[gd_scene load_steps=6 format=3 uid="uid://dcp7f57djo5x8"]
 
-[ext_resource type="Texture2D" uid="uid://daxx2ms4rb7td" path="res://icon.svg" id="1_85j8u"]
-[ext_resource type="PackedScene" uid="uid://ddji1pcvuyxsk" path="res://player.tscn" id="2_2lqm5"]
-[ext_resource type="PackedScene" uid="uid://jgqsitgii6f0" path="res://tower_placer.tscn" id="3_qy6qn"]
+[ext_resource type="PackedScene" uid="uid://ddji1pcvuyxsk" path="res://scenes/player.tscn" id="1_78hem"]
+[ext_resource type="PackedScene" uid="uid://jgqsitgii6f0" path="res://scenes/tower_placer.tscn" id="2_rfm10"]
+[ext_resource type="Texture2D" uid="uid://daxx2ms4rb7td" path="res://icon.svg" id="3_7gkq8"]
+[ext_resource type="PackedScene" uid="uid://8bjxj2cyxklp" path="res://scenes/enemy.tscn" id="4_qiwcu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_lcj4k"]
 size = Vector2(1176, 130)
 
 [node name="Node" type="Node"]
 
-[node name="player" parent="." instance=ExtResource("2_2lqm5")]
+[node name="player" parent="." instance=ExtResource("1_78hem")]
 position = Vector2(562, 276)
 
 [node name="Camera2D" type="Camera2D" parent="player"]
@@ -18,7 +19,7 @@ position_smoothing_enabled = true
 position_smoothing_speed = 20.0
 rotation_smoothing_speed = 20.0
 
-[node name="towerPlacer1" parent="." instance=ExtResource("3_qy6qn")]
+[node name="towerPlacer1" parent="." instance=ExtResource("2_rfm10")]
 position = Vector2(428, 335)
 
 [node name="flor" type="StaticBody2D" parent="."]
@@ -27,25 +28,25 @@ position = Vector2(4, 10)
 [node name="florSprite" type="Sprite2D" parent="flor"]
 position = Vector2(575, 454)
 scale = Vector2(9.04688, 1)
-texture = ExtResource("1_85j8u")
+texture = ExtResource("3_7gkq8")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="flor"]
 position = Vector2(585, 455)
 shape = SubResource("RectangleShape2D_lcj4k")
 
-[node name="towerPlacer2" parent="." instance=ExtResource("3_qy6qn")]
+[node name="towerPlacer2" parent="." instance=ExtResource("2_rfm10")]
 position = Vector2(31, 333)
 
-[node name="towerPlacer3" parent="." instance=ExtResource("3_qy6qn")]
+[node name="towerPlacer3" parent="." instance=ExtResource("2_rfm10")]
 position = Vector2(991, 330)
 
-[node name="towerPlacer4" parent="." instance=ExtResource("3_qy6qn")]
+[node name="towerPlacer4" parent="." instance=ExtResource("2_rfm10")]
 position = Vector2(798, 332)
 
-[node name="towerPlacer5" parent="." instance=ExtResource("3_qy6qn")]
+[node name="towerPlacer5" parent="." instance=ExtResource("2_rfm10")]
 position = Vector2(609, 334)
 
-[node name="towerPlacer" parent="." instance=ExtResource("3_qy6qn")]
+[node name="towerPlacer" parent="." instance=ExtResource("2_rfm10")]
 position = Vector2(229, 340)
 
 [node name="TextEdit" type="TextEdit" parent="."]
@@ -57,3 +58,6 @@ offset_right = -8.96802
 offset_bottom = 3.95999
 theme_override_font_sizes/font_size = 50
 text = "w a s d   spacja     enter stawiasz cos"
+
+[node name="Enemy" parent="." instance=ExtResource("4_qiwcu")]
+position = Vector2(107, 303)

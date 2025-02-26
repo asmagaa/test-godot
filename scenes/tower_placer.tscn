@@ -1,7 +1,7 @@
 [gd_scene load_steps=4 format=3 uid="uid://jgqsitgii6f0"]
 
-[ext_resource type="Script" path="res://TowerPlacer.cs" id="1_sjdhd"]
-[ext_resource type="PackedScene" uid="uid://cav3iorginirt" path="res://tower.tscn" id="2_nutwn"]
+[ext_resource type="Script" path="res://scripts/TowerPlacer.cs" id="1_sjdhd"]
+[ext_resource type="PackedScene" uid="uid://cav3iorginirt" path="res://scenes/tower.tscn" id="2_nutwn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gxwqu"]
 size = Vector2(171, 119)

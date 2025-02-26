@@ -1,0 +1,29 @@
+[gd_scene load_steps=5 format=3 uid="uid://8bjxj2cyxklp"]
+
+[ext_resource type="Texture2D" uid="uid://cgt0nontnp2dw" path="res://assets/enemy.png" id="1_efyko"]
+[ext_resource type="Script" path="res://scripts/Enemy.cs" id="1_ipx6r"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_dnoxa"]
+size = Vector2(122, 112)
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_kf3k1"]
+radius = 72.0069
+
+[node name="Enemy" type="CharacterBody2D"]
+platform_floor_layers = 4294901763
+script = ExtResource("1_ipx6r")
+speed = 100.0
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_efyko")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(2, 0)
+shape = SubResource("RectangleShape2D_dnoxa")
+
+[node name="AttackRange" type="Area2D" parent="."]
+collision_layer = 65535
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackRange"]
+shape = SubResource("CircleShape2D_kf3k1")

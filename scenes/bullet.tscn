@@ -1,0 +1,28 @@
+[gd_scene load_steps=5 format=3 uid="uid://c8mbjn4h0lgkd"]
+
+[ext_resource type="Texture2D" uid="uid://daxx2ms4rb7td" path="res://icon.svg" id="1_1ngbn"]
+[ext_resource type="Script" path="res://scripts/Bullet.cs" id="1_8xeov"]
+[ext_resource type="Script" path="res://scripts/BulletTimer.cs" id="3_0kjaj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_183qq"]
+radius = 7.0
+height = 44.0
+
+[node name="Bullet" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_8xeov")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(-9.53674e-07, -0.145508)
+scale = Vector2(0.359375, 0.111649)
+texture = ExtResource("1_1ngbn")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_183qq")
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 2.0
+one_shot = true
+autostart = true
+script = ExtResource("3_0kjaj")

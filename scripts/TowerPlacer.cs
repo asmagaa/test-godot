@@ -27,7 +27,7 @@ public partial class TowerPlacer  : Node2D
 	{
 		if(player != null && areaOfPlacer.OverlapsBody(player))
 		{
-			PackedScene scene = ResourceLoader.Load<PackedScene>("res://Tower.tscn");
+			PackedScene scene = ResourceLoader.Load<PackedScene>("res://scenes/Tower.tscn");
 			Node instance = scene.Instantiate();
 			AddChild(instance);
 		}
